@@ -1,0 +1,22 @@
+{
+  "name": "child-killer",
+  "version": "0.0.1",
+  "description": "Wrap node's child_process library, making sure that the spawned processes dies as the master dies",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "posix": "0.0.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kesla/node-child-killer.git"
+  },
+  "author": "David Björklund",
+  "license": "MIT"
+}
