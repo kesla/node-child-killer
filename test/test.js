@@ -1,19 +1,6 @@
-var assert = require('assert');
+var i = require('../index');
 var cp = require('child_process');
 
-var m = cp.fork(__dirname + '/master.js');
-
-m.on('message', function(childPid) {
-  function onTimeout2() {
-    cp.exec('ps -p ' + childPid, function(err, stdout) {
-      assert.strictEqual(stdout.split('\n')[1], '');
-    });
-  }
-
-  function onTimeout() {
-    process.kill(m.pid, 'SIGKILL');
-    setTimeout(onTimeout2, 200);
-  }
-
-  setTimeout(onTimeout, 100);
-});
+var f = i.spawn(process.execPath, [__dirname + '/child.js']);
+f.stderr.pipe(process.stderr);
+process.send(f.pid);
