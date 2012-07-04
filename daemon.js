@@ -8,7 +8,9 @@ process.on('message', function(pid) {
 setInterval(function() {
   if (posix.getppid() === 1) {
     pids.forEach(function(pid) {
-      process.kill(pid);
+      try {
+        process.kill(pid);
+      } catch (e) {}
     });
     process.exit();
   }
