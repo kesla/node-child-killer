@@ -1,6 +1,6 @@
 {
   "name": "child-killer",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Wrap node's child_process library, making sure that the spawned processes dies as the master dies",
   "main": "index.js",
   "directories": {
